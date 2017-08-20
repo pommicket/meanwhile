@@ -358,7 +358,7 @@ step code state = do
             'K' -> quit -- Kill pointer
 
             -- Stack-related operations
-            '~' -> let (v1, state') = pop state; (v2, state'') = pop state' in state >$ flip push v1 >$ flip push v2 >$ defaultmove -- Flip top 2 stack items
+            '~' -> let (v1, state') = pop state; (v2, state'') = pop state' in state'' >$ flip push v1 >$ flip push v2 >$ defaultmove -- Flip top 2 stack items
             'D' -> let (v, state') = pop state in state >$ flip push v >$ defaultmove -- Duplicate top stack item
             'P' -> let (_, state') = pop state in state' >$ defaultmove -- Pop
 
